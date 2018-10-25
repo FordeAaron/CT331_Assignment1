@@ -125,3 +125,8 @@ void printLong(void* data)
 	printf("%ld\n", *(long*)data);
 }
 
+void printChar(void* data)
+{
+	printf("%c\n", *(char*)data);
+}
+

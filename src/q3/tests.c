@@ -23,8 +23,7 @@ void runTests(){
 //test pop
   pop(&l);
   traverse(l);
-  printf("\n");
-
+ 
   //testing enqueue
   char i = z;
   enqueue(&l, &i, sizeof(i), &printChar);
