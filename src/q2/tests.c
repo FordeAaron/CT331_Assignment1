@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include "tests.h"
 #include "linkedList.h"
@@ -9,6 +10,7 @@ void runTests(){
   //Test create and traverse
   traverse(l);
   printf("\n");
+
 
   //Test insert after
   listElement* l2 = insertAfter(l, "another string (2)", 30);
@@ -23,3 +25,4 @@ void runTests(){
 
   printf("\nTests complete.\n");
 }
+

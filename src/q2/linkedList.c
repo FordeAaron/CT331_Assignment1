@@ -11,7 +11,7 @@ typedef struct listElementStruct{
 
 //Creates a new linked list element with given content of size
 //Returns a pointer to the element
-listElement* createEl(char* data, size_t size){
+listElement* createEl(void* data, size_t size){
   listElement* e = malloc(sizeof(listElement));
   if(e == NULL){
     //malloc has had an error
@@ -29,6 +29,58 @@ listElement* createEl(char* data, size_t size){
   e->next = NULL;
   return e;
 }
+
+
+int length(listElement* list)
+{
+	int count = 0;
+	listElement* current = list;
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
+	return count;
+}
+
+void push(listElement** list, char* data, size_t size)
+{
+	listElement* newNode = createEl(data, size);
+		newNode->next = *list;
+		*list=newNode;	
+}
+
+listElement* pop(listElement** list)
+{
+	listElement* temp = *list;
+	if (temp)
+	{
+		*list = temp->next;
+	}
+	return temp;
+}
+
+void enqueue(listElement** list, char* data, size_t size)
+{
+	listElement* newNode = createEl( data, size);
+	newNode->next = *list;
+	*list = newNode;	
+}
+
+listElement* dequeue(listElement* list)
+{
+	listElement *temp = list;
+	while((temp->next)->next != NULL)
+	{
+		temp = temp->next;
+	}
+		listElement *endEl = temp->next;
+		temp->next = NULL;
+	
+	return endEl;
+}
+
+
 
 //Prints out each element in the list
 void traverse(listElement* start){
